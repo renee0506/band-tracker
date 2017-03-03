@@ -102,5 +102,39 @@ namespace BandTracker
       Assert.Equal(expected, actual);
     }
 
+    [Fact]
+    public void Test_DeleteVenue_DeleteVenueFromDatabase()
+    {
+      //Arrange
+      Venue testVenue = new Venue("THE SAPCE");
+
+      //Act
+      testVenue.Save();
+      testVenue.Delete();
+
+      //Assert
+      List<Venue> expected = new List<Venue>{};
+      List<Venue> actual = Venue.GetAll();
+
+      Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Test_DeleteVenue_DeleteVenueFromJoinTable()
+    {
+      //Arrange
+      Venue testVenue = new Venue("THE SPACE");
+      testVenue.Save();
+      Band testBand = new Band("Rocket");
+      testBand.Save();
+      testVenue.AddBand(testBand);
+      //Act
+      testVenue.Delete();
+      List<Task> expected = new List<Task> {};
+      List<Task> actual = testBand.GetVenues();
+
+      Assert.Equal(expected, actual);
+    }
+
   }
 }
