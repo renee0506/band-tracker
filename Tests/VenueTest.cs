@@ -15,6 +15,7 @@ namespace BandTracker
     public void Dispose()
     {
       Venue.DeleteAll();
+      Band.DeleteAll();
     }
 
     [Fact]
@@ -74,7 +75,7 @@ namespace BandTracker
     }
 
     [Fact]
-    public void AddBand_BandObject_BandVenueSavedInJoinTable()
+    public void AddGetBand_BandObject_BandVenueSavedInJoinTable()
     {
       Venue testVenue = new Venue ("THE SPACE");
       testVenue.Save();
@@ -87,6 +88,19 @@ namespace BandTracker
 
       Assert.Equal(expected, output);
     }
-    
+
+    [Fact]
+    public void Test_Update_UpdateVenueInDatabase()
+    {
+      Venue testVenue = new Venue("THE SPACE");
+      testVenue.Save();
+
+      testVenue.Update("THE COLOSSEUM AT CAESAR’S PALACE");
+      Venue actual = testVenue;
+      Venue expected = new Venue("THE COLOSSEUM AT CAESAR’S PALACE");
+
+      Assert.Equal(expected, actual);
+    }
+
   }
 }
