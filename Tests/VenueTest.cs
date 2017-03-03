@@ -72,7 +72,7 @@ namespace BandTracker
       //Assert
       Assert.Equal(testVenue, foundVenue);
     }
-    
+
     [Fact]
     public void AddBand_BandObject_BandVenueSavedInJoinTable()
     {
@@ -87,5 +87,6 @@ namespace BandTracker
 
       Assert.Equal(expected, output);
     }
+    
   }
 }

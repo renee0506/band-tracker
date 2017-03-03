@@ -71,6 +71,20 @@ namespace BandTracker
       Assert.Equal(testBand, foundBand);
     }
 
+    [Fact]
+    public void AddBand_BandObject_BandVenueSavedInJoinTable()
+    {
+      Venue testVenue = new Venue ("THE SPACE");
+      testVenue.Save();
+      Band testBand = new Band("Rocket");
+      testBand.Save();
+      testBand.AddBand(Venue);
+
+      List<Venue> output = testBand.GetVenues();
+      List<Venue> expected = new List<Venue>{testVenue};
+
+      Assert.Equal(expected, output);
+    }
 
   }
 }
