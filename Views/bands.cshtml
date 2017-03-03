@@ -1,21 +1,23 @@
-
-@if (@Model["bands"].Count == 0)
-{
-  <p>You have not added bands yet.</p>
-}
-else
-{
-  <ul>
-    @foreach(var band in @Model["bands"])
-    {
-      <li><a href="/band/@band.GetId()">@band.GetName()</a></li>
-    }
-  </ul>
-}
-
-<p>Add a new band</p>
-<form action="/band/new" method="post">
-  <label for="band-name">Enter Band Name</label>
-  <input type="text" name="band-name">
-  <button type="submit" class="btn waves-effect waves-light">Add<i class="material-icons right">add</i></button>
-</form>
+<h1 class="card-title">Bands</h1>
+<div class="card-content">
+  @if (@Model["bands"].Count == 0)
+  {
+    <p>You have not added bands yet.</p>
+  }
+  else
+  {
+    <ul class="collection">
+      @foreach(var band in @Model["bands"])
+      {
+        <a href="/band/@band.GetId()" class="collection-item">@band.GetName()</a>
+      }
+    </ul>
+  }
+</div>
+<div class="card-action">
+  <p>Add a new band</p>
+  <form action="/band/new" method="post">
+    <input type="text" name="band-name" placeholder="Enter Band Name">
+    <button type="submit" class="btn waves-effect waves-light">Add<i class="material-icons right">add</i></button>
+  </form>
+</div>

@@ -1,34 +1,44 @@
 @{
-    Layout="Shared/_Layout.cshtml";
+  Layout="Shared/_Layout.cshtml";
 }
 
-<div class="col l6">
-  <h1>@Model["band"].GetName()</h1>
-  <a href="/">Back to Home</a>
+<div class="col l6 valign">
+  <div class="card-panel hoverable card">
+    <div class="card-content">
+      <h1>@Model["band"].GetName()</h1>
+    </div>
+    <div class="card-action">
+      <a href="/">Back to Home</a>
+    </div>
+  </div>
 </div>
-<div class="col l6">
-  <h3>The band has played at</h3>
-  @if (@Model["all-venues"].Count == 0)
-  {
-    <p>You have not added venues yet.</p>
-  }
-  else
-  {
-    <ul>
-      @foreach(var venue in @Model["venues"])
-      {
-        <li>@venue.GetName()</li>
-      }
-    </ul>
-    <h4>Add Venue to This Band</h4>
-    <form action="/band/@Model["band"].GetId()/venues/new" method="post">
-      <select name="new-venue">
-        @foreach (var venue in @Model["all-venues"])
+<div class="col l6 valign">
+  <div class="card-panel hoverable card">
+    <h4>The band has played at</h4>
+    @if (@Model["all-venues"].Count == 0)
+    {
+      <p>You have not added venues yet.</p>
+    }
+    else
+    {
+      <ul>
+        @foreach(var venue in @Model["venues"])
         {
-          <option value="@venue.GetId()">@venue.GetName()</option>
+          <li class="collection-item"></li><div><a href="/venue/@venue.GetId()">@venue.GetName()</a> <a href="/venue/@venue.GetId()/delete" class="secondary-content"><i class="material-icons">delete</i></a> <a href="/venue/@venue.GetId()/update"><i class="material-icons">mode_edit</i></a></div></li>
         }
-      </select>
-      <button type="submit" name="button" class="btn waves-effect waves-light">Add<i class="material-icons right">add</i></button>
-    </form>
-  }
+      </ul>
+      <div class="card-action">
+        <p>Add Venue to This Band</p>
+        <form action="/band/@Model["band"].GetId()/venues/new" method="post">
+          <select name="new-venue">
+            @foreach (var venue in @Model["all-venues"])
+            {
+              <option value="@venue.GetId()">@venue.GetName()</option>
+            }
+          </select>
+          <button type="submit" name="button" class="btn waves-effect waves-light">Add<i class="material-icons right">add</i></button>
+        </form>
+      </div>
+    }
+  </div>
 </div>

@@ -1,0 +1,19 @@
+#main {
+  margin-top: 15vh;
+}
+
+.card-panel {
+  padding: 30px;
+}
+
+.card-content {
+  height: 50%;
+}
+
+#delete {
+  color: #f44336;
+}
+
+body {
+  background-color: #009688;
+}

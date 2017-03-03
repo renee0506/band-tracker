@@ -1,20 +1,23 @@
-@if (@Model["venues"].Count == 0)
-{
-  <p>You have not added venues yet.</p>
-}
-else
-{
-  <ul>
-    @foreach(var venue in @Model["venues"])
-    {
-      <li><a href="/venue/@venue.GetId()">@venue.GetName()</a> <a href="/venue/@venue.GetId()/delete"><i class="material-icons">delete</i></a> <a href="/venue/@venue.GetId()/update"><i class="material-icons">mode_edit</i></a></li>
-    }
-  </ul>
-}
-
-<p>Add a new venue</p>
-<form action="/venue/new" method="post">
-  <label for="venue-name">Enter Venue Name</label>
-  <input type="text" name="venue-name">
-  <button type="submit" class="btn waves-effect waves-light">Add<i class="material-icons right">add</i></button>
-</form>
+<h1 class="card-title">Venues</h1>
+<div class="card-content">
+  @if (@Model["venues"].Count == 0)
+  {
+    <p>You have not added venues yet.</p>
+  }
+  else
+  {
+    <ul class="collection">
+      @foreach(var venue in @Model["venues"])
+      {
+        <li class="collection-item"><div><a href="/venue/@venue.GetId()">@venue.GetName()</a> <a href="/venue/@venue.GetId()/delete" class="secondary-content"><i class="material-icons">delete</i></a> <a href="/venue/@venue.GetId()/update" class="secondary-content"><i class="material-icons">mode_edit</i></a></div></li>
+      }
+    </ul>
+  }
+</div>
+<div class="card-action">
+  <p>Add a new venue</p>
+  <form action="/venue/new" method="post">
+    <input type="text" name="venue-name" placeholder="Enter Venue Name">
+    <button type="submit" class="btn waves-effect waves-light">Add<i class="material-icons right">add</i></button>
+  </form>
+</div>

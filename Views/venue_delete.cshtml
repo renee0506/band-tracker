@@ -2,14 +2,19 @@
     Layout="Shared/_Layout.cshtml";
 }
 
-<div class="col l6 push-l6">
-  <h2>Are you sure you want to delete @Model["venue"].GetName()?</h2>
-  <form action="/venue/@Model["venue"].GetId()/delete" method="post">
-    <input type="hidden" name="_method" value="DELETE">
-    <button type="submit" class="btn waves-effect waves-light">Confirm</button>
-  </form>
-  <a href="/">Back to Home</a>
+<div class="col l6 push-l6 valign">
+  <div class="card-panel hoverable">
+    <h2>Are you sure you want to delete <span id="delete">@Model["venue"].GetName()</span>?</h2>
+    <form action="/venue/@Model["venue"].GetId()/delete" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit" class="btn waves-effect waves-light">Confirm</button>
+    </form>
+    <br>
+    <a href="/">Back to Home</a>
+  </div>
 </div>
-<div class="col l6 pull-l6">
-  @Html.Partial("bands.cshtml", Model)
+<div class="col l6 pull-l6 valign">
+  <div class="card-panel hoverable card">
+    @Html.Partial("bands.cshtml", Model)
+  </div>
 </div>

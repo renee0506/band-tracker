@@ -2,33 +2,43 @@
     Layout="Shared/_Layout.cshtml";
 }
 
-<div class="col l6 push-l6">
-  <h1>@Model["venue"].GetName()</h1>
-  <a href="/">Back to Home</a>
+<div class="col l6 push-l6 valign">
+  <div class="card-panel hoverable card">
+    <div class="card-content">
+      <h1>@Model["venue"].GetName()</h1>
+    </div>
+    <div class="card-action">
+      <a href="/">Back to Home</a>
+    </div>
+  </div>
 </div>
 <div class="col l6 pull-l6">
-  <h3>This venue has hosted </h3>
-  @if (@Model["all-bands"].Count == 0)
-  {
-    <p>You have not added bands yet.</p>
-  }
-  else
-  {
-    <ul>
-    @foreach(var band in @Model["bands"])
-    {
-      <li>@band.GetName()</li>
-    }
-    </ul>
-  }
-  <h4>Add a band to this venue</h4>
-  <form action="/venue/@Model["venue"].GetId()/bands/new" method="post">
-  <select name="new-band">
-  @foreach (var band in @Model["all-bands"])
-  {
-    <option value="@band.GetId()">@band.GetName()</option>
-  }
-  </select>
-  <button type="submit" name="button" class="btn waves-effect waves-light">Add<i class="material-icons right">add</i></button>
-  </form>
+  <div class="card-panel hoverable card">
+      <h3>This venue has hosted </h3>
+      @if (@Model["all-bands"].Count == 0)
+      {
+        <p>You have not added bands yet.</p>
+      }
+      else
+      {
+        <ul class="collection">
+        @foreach(var band in @Model["bands"])
+        {
+          <a href="/band/@band.GetId()" class="collection-item">@band.GetName()</a>
+        }
+        </ul>
+      }
+    <div class="card-action">
+      <p>Add a band to this venue</p>
+      <form action="/venue/@Model["venue"].GetId()/bands/new" method="post">
+      <select name="new-band">
+      @foreach (var band in @Model["all-bands"])
+      {
+        <option value="@band.GetId()">@band.GetName()</option>
+      }
+      </select>
+      <button type="submit" name="button" class="btn waves-effect waves-light">Add<i class="material-icons right">add</i></button>
+      </form>
+    </div>
+  </div>
 </div>
