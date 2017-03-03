@@ -24,5 +24,14 @@ namespace BandTracker
 
       Assert.Equal(0, result);
     }
+
+    [Fact]
+    public void Equals_EntryIsEqual_true()
+    {
+      Venue venue1 = new Venue ("THE SPACE");
+      Venue venue2 = new Venue ("CAIN’S BALLROOM");
+
+      Assert.Equal(venue1, venue2);
+    }
   }
 }
