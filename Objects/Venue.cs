@@ -134,5 +134,50 @@ namespace BandTracker
       return foundVenue;
     }
 
+    // public void AddBand(Band newBand)
+    // {
+    //   SqlConnection conn = DB.Connection();
+    //   conn.Open();
+    //
+    //   SqlCommand cmd = new SqlCommand("INSERT INTO bands_tables (band_id, venue_id) OUTPUT INSERTED.id VALUES (@BandId, @VenueID);", conn);
+    //   cmd.Parameters.Add(new SqlParameter("@BandId", newBand.GetId()));
+    //   cmd.Parameters.Add(new SqlParameter("@VenueId", this.GetId()));
+    //   cmd.ExecuteNonQuery();
+    //
+    //   if (conn != null)
+    //   {
+    //     conn.Close();
+    //   }
+    // }
+    //
+    // public List<Band> GetBands()
+    // {
+    //   List<Band> allBands = new List<Band> {};
+    //   SqlConnection conn = DB.Connection();
+    //   conn.Open();
+    //
+    //   SqlCommand cmd = new SqlCommand("SELECT bands.* FROM venues JOIN bands_venues ON (venues.id = bands_venues.venue_id) JOIN bands ON (bands.id = bands_venues.band_id) WHERE venues.id =@VenueId;", conn);
+    //   cmd.Parameters.Add(new SqlParameter("@VenueId", this.GetId()));
+    //   SqlDataReader rdr = cmd.ExecuteReader();
+    //
+    //   while (rdr.Read())
+    //   {
+    //     int Id = rdr.GetInt32(0);
+    //     string bandName = rdr.GetString(1);
+    //     Band newBand = new Band(bandName, Id);
+    //     allBands.Add(newBand);
+    //   }
+    //
+    //   if(rdr != null)
+    //   {
+    //     rdr.Close();
+    //   }
+    //   if (conn != null)
+    //   {
+    //     conn.Close();
+    //   }
+    //
+    //   return allBands;
+    // }
   }
 }

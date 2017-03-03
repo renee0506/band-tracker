@@ -64,7 +64,8 @@
 * Example Input: Stylist1.GetClients( )
 * Example Output: List<Client>{Client1, Client2}
 
-**The SaveVenue method will add a venue that the band has played at.**
+**The AddVenue method will add a venue that the band has played at.**
+
 
 
 #### Class: venues
@@ -100,6 +101,11 @@
 * Example Input: Client1.Delete( )
 * Example Output: Table: venues does not have Client1's information anymore
 
+**The GetBands method will find all the bands that have played at a venue**
+* Example Input: Stylist1.GetClients( )
+* Example Output: List<Client>{Client1, Client2}
+
+**The AddBand method will add a band to a venue**
 
 ## Support and contact details
 
