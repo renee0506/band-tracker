@@ -97,7 +97,7 @@ namespace BandTracker
 
       testVenue.Update("THE COLOSSEUM AT CAESAR’S PALACE");
       Venue actual = testVenue;
-      Venue expected = new Venue("THE COLOSSEUM AT CAESAR’S PALACE");
+      Venue expected = new Venue("THE COLOSSEUM AT CAESAR’S PALACE", testVenue.GetId());
 
       Assert.Equal(expected, actual);
     }

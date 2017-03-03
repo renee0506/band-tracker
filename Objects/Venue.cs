@@ -179,5 +179,39 @@ namespace BandTracker
 
       return allBands;
     }
+
+    public void Update(string newName)
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("UPDATE venues SET name = @newName OUTPUT INSERTED.name WHERE id = @Id;", conn);
+
+      SqlParameter IdParameter = new SqlParameter();
+      IdParameter.ParameterName = "@Id";
+      IdParameter.Value = this.GetId();
+      cmd.Parameters.Add(IdParameter);
+
+      SqlParameter newNameParameter = new SqlParameter();
+      newNameParameter.ParameterName = "@newName";
+      newNameParameter.Value = newName;
+      cmd.Parameters.Add(newNameParameter);
+
+      SqlDataReader rdr = cmd.ExecuteReader();
+
+      while (rdr.Read())
+      {
+        this._name = rdr.GetString(0);
+      }
+      if(rdr!= null)
+      {
+        rdr.Close();
+      }
+      if (conn != null)
+      {
+        conn.Close();
+      }
+    }
+    
   }
 }
