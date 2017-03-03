@@ -60,6 +60,17 @@ namespace BandTracker
       Assert.Equal(expected, result);
     }
 
+    [Fact]
+    public void Find_VenueId_ReturnVenueFromDatabase()
+    {
+      Band testBand = new Band("THE SPACE");
+      testBand.Save();
+
+      Band foundBand = Band.Find(testBand.GetId());
+
+      Assert.Equal(testBand, foundBand);
+    }
+
 
   }
 }

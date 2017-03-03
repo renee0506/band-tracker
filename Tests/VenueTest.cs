@@ -28,8 +28,8 @@ namespace BandTracker
     [Fact]
     public void Equals_EntryIsEqual_true()
     {
-      Venue venue1 = new Venue ("THE SPACE");
-      Venue venue2 = new Venue ("THE SPACE");
+      Venue venue1 = new Venue("THE SPACE");
+      Venue venue2 = new Venue("THE SPACE");
 
       Assert.Equal(venue1, venue2);
     }
@@ -37,7 +37,7 @@ namespace BandTracker
     [Fact]
     public void Save_SaveToDatabase_Save()
     {
-      Venue testVenue = new Venue ("THE SPACE");
+      Venue testVenue = new Venue("THE SPACE");
       testVenue.Save();
 
       List<Venue> result = Venue.GetAll();
@@ -49,7 +49,7 @@ namespace BandTracker
     [Fact]
     public void Save_SaveToDatabase_SaveWithId()
     {
-      Venue testVenue = new Venue ("THE SPACE");
+      Venue testVenue = new Venue("THE SPACE");
       testVenue.Save();
       Venue savedVenue = Venue.GetAll()[0];
 
@@ -59,19 +59,19 @@ namespace BandTracker
       Assert.Equal(expected, result);
     }
 
-    // [Fact]
-    // public void Find_VenueId_ReturnVenueFromDatabase()
-    // {
-    //   //Arrange
-    //   Venue testVenue = new Venue ("THE SPACE");
-    //   testVenue.Save();
-    //
-    //   //Act
-    //   Venue foundVenue = Venue.Find(testVenue.GetId());
-    //
-    //   //Assert
-    //   Assert.Equal(testVenue, foundVenue);
-    // }
+    [Fact]
+    public void Find_VenueId_ReturnVenueFromDatabase()
+    {
+      //Arrange
+      Venue testVenue = new Venue("THE SPACE");
+      testVenue.Save();
+
+      //Act
+      Venue foundVenue = Venue.Find(testVenue.GetId());
+
+      //Assert
+      Assert.Equal(testVenue, foundVenue);
+    }
     //
     // [Fact]
     // public void AddBand_BandObject_BandVenueSavedInJoinTable()
