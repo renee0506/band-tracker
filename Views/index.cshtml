@@ -1,5 +1,9 @@
-<h1>Home Page</h1>
-
-@Html.Partial("bands.cshtml", Model)
-
-@Html.Partial("venues.cshtml", Model)
+@{
+    Layout="Shared/_Layout.cshtml";
+}
+<div class="col l6">
+  @Html.Partial("bands.cshtml", Model)
+</div>
+<div class="col l6">
+  @Html.Partial("venues.cshtml", Model)
+</div>
