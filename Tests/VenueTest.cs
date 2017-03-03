@@ -45,5 +45,18 @@ namespace BandTracker
 
       Assert.Equal(expected, result);
     }
+
+    [Fact]
+    public void Save_SaveToDatabase_SaveWithId()
+    {
+      Venue testVenue = new Venue ("THE SPACE");
+      testVenue.Save();
+      Venue savedVenue = Venue.GetAll()[0];
+
+      int result = savedVenue.GetId();
+      int expected = testVenue.GetId();
+
+      Assert.Equal(expected, result);
+    }
   }
 }
