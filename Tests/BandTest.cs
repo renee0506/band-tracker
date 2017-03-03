@@ -5,7 +5,7 @@ using Xunit;
 
 namespace BandTracker
 {
-  public class BandTest
+  public class BandTest : IDisposable
   {
     public BandTest()
     {
