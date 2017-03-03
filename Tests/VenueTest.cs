@@ -29,7 +29,7 @@ namespace BandTracker
     public void Equals_EntryIsEqual_true()
     {
       Venue venue1 = new Venue ("THE SPACE");
-      Venue venue2 = new Venue ("CAIN’S BALLROOM");
+      Venue venue2 = new Venue ("THE SPACE");
 
       Assert.Equal(venue1, venue2);
     }
