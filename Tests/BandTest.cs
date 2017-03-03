@@ -26,5 +26,15 @@ namespace BandTracker
       Assert.Equal(0, result);
     }
 
+    [Fact]
+    public void Equals_EntryIsEqual_true()
+    {
+      Band band1 = new Band ("Rocket");
+      Band band2 = new Band ("Rocket");
+
+      Assert.Equal(band1, band2);
+    }
+
+
   }
 }
