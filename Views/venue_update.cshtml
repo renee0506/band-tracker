@@ -1,0 +1,8 @@
+<p>Enter new name for @Model["venue"].GetName()?</p>
+<form action="/venue/@Model["venue"].GetId()/update" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <input type="text" name="new-venue-name">
+  <button type="submit">Update</button>
+</form>
+<a href="/">Back to Home</a>
+@Html.Partial("bands.cshtml", Model)

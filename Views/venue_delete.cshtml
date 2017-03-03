@@ -1,0 +1,7 @@
+<p>Are you sure you want to delete @Model["venue"].GetName()?</p>
+<form action="/venue/@Model["venue"].GetId()/delete" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <button type="submit">Confirm</button>
+</form>
+<a href="/">Back to Home</a>
+@Html.Partial("bands.cshtml", Model)

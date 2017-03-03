@@ -1,0 +1,26 @@
+<p>@Model["band"].GetName()</p>
+<a href="/">Back to Home</a>
+
+@if (@Model["venues"].Count == 0)
+{
+  <p>You have not added venues yet.</p>
+}
+else
+{
+  <ul>
+    @foreach(var venue in @Model["venues"])
+    {
+      <li>@venue.GetName()</li>
+    }
+  </ul>
+}
+
+<form action="/band/@Model["band"].GetId()/venues/new" method="post">
+  <select name="new-venue">
+    @foreach (var venue in @Model["all-venues"])
+    {
+      <option value="@venue.GetId()">@venue.GetName()</option>
+    }
+  </select>
+  <button type="submit" name="button">Add</button>
+</form>

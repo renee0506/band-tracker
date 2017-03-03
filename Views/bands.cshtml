@@ -1,0 +1,21 @@
+
+@if (@Model["bands"].Count == 0)
+{
+  <p>You have not added bands yet.</p>
+}
+else
+{
+  <ul>
+    @foreach(var band in @Model["bands"])
+    {
+      <li><a href="/band/@band.GetId()">@band.GetName()</a></li>
+    }
+  </ul>
+}
+
+<p>Add a new band</p>
+<form action="/band/new" method="post">
+  <label for="band-name">Enter Band Name</label>
+  <input type="text" name="band-name">
+  <button type="submit">Add</button>
+</form>
