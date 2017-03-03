@@ -33,5 +33,17 @@ namespace BandTracker
 
       Assert.Equal(venue1, venue2);
     }
+
+    [Fact]
+    public void Save_SaveToDatabase_Save()
+    {
+      Venue testVenue = new Venue ("THE SPACE");
+      testVenue.Save();
+
+      List<Venue> result = Venue.GetAll();
+      List<Venue> expected = new List<Venue>{testVenue};
+
+      Assert.Equal(expected, result);
+    }
   }
 }
