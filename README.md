@@ -64,6 +64,9 @@
 * Example Input: Stylist1.GetClients( )
 * Example Output: List<Client>{Client1, Client2}
 
+**The SaveVenue method will add a venue that the band has played at.**
+
+
 #### Class: venues
 **The GetAll method will return an empty list if the list of venues is empty in the beginning**
 * Example Input: Client.GetAll( )
