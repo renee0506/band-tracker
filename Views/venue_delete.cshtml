@@ -1,7 +1,15 @@
-<p>Are you sure you want to delete @Model["venue"].GetName()?</p>
-<form action="/venue/@Model["venue"].GetId()/delete" method="post">
-  <input type="hidden" name="_method" value="DELETE">
-  <button type="submit">Confirm</button>
-</form>
-<a href="/">Back to Home</a>
-@Html.Partial("bands.cshtml", Model)
+@{
+    Layout="Shared/_Layout.cshtml";
+}
+
+<div class="col l6 push-l6">
+  <h2>Are you sure you want to delete @Model["venue"].GetName()?</h2>
+  <form action="/venue/@Model["venue"].GetId()/delete" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" class="btn waves-effect waves-light">Confirm</button>
+  </form>
+  <a href="/">Back to Home</a>
+</div>
+<div class="col l6 pull-l6">
+  @Html.Partial("bands.cshtml", Model)
+</div>

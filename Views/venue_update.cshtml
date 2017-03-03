@@ -1,8 +1,16 @@
-<p>Enter new name for @Model["venue"].GetName()?</p>
-<form action="/venue/@Model["venue"].GetId()/update" method="post">
-  <input type="hidden" name="_method" value="PATCH">
-  <input type="text" name="new-venue-name">
-  <button type="submit">Update</button>
-</form>
-<a href="/">Back to Home</a>
-@Html.Partial("bands.cshtml", Model)
+@{
+    Layout="Shared/_Layout.cshtml";
+}
+
+<div class="col l6 push-l6">
+  <p>Enter new name for @Model["venue"].GetName()?</p>
+  <form action="/venue/@Model["venue"].GetId()/update" method="post">
+    <input type="hidden" name="_method" value="PATCH">
+    <input type="text" name="new-venue-name">
+    <button type="submit" class="btn waves-effect waves-light">Update</button>
+  </form>
+  <a href="/">Back to Home</a>
+</div>
+<div class="col l6 pull-l6">
+  @Html.Partial("bands.cshtml", Model)
+</div>
