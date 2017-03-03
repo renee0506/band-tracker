@@ -72,13 +72,13 @@ namespace BandTracker
     }
 
     [Fact]
-    public void AddBand_BandObject_BandVenueSavedInJoinTable()
+    public void AddVenue_BandObject_BandVenueSavedInJoinTable()
     {
       Venue testVenue = new Venue ("THE SPACE");
       testVenue.Save();
       Band testBand = new Band("Rocket");
       testBand.Save();
-      testBand.AddBand(Venue);
+      testBand.AddVenue(testVenue);
 
       List<Venue> output = testBand.GetVenues();
       List<Venue> expected = new List<Venue>{testVenue};
