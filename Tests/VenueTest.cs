@@ -130,8 +130,8 @@ namespace BandTracker
       testVenue.AddBand(testBand);
       //Act
       testVenue.Delete();
-      List<Task> expected = new List<Task> {};
-      List<Task> actual = testBand.GetVenues();
+      List<Venue> expected = new List<Venue> {};
+      List<Venue> actual = testBand.GetVenues();
 
       Assert.Equal(expected, actual);
     }
